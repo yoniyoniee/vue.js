@@ -8,9 +8,10 @@
             Build-a-bot
           </router-link>
         </li>
-        <li>
-          User: {{user.userName}}
-          <button @click="changeUserName()">Change</button>
+        <li class="nav-item">
+          <router-link class="nav-link" :to="{name: 'Build'}">
+            Build
+          </router-link>
         </li>
       </ul>
     </nav>
@@ -81,4 +82,7 @@ ul {
   text-decoration: none;
   color: inherit;
 }
+.router-link-active {
+  color: white;
+} /* 내장되어 있는 라우터 링크 활성 클래스: 활성화 되어있는 링크만 흰색으로 변경 */
 </style>
