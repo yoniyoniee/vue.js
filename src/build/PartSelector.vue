@@ -1,6 +1,6 @@
 <template>
     <div class="part" :class="position">
-        <div>User: {{userName}}</div>
+        <div>User: {{user.userName}}</div>
       <img :src="selectedPart.src"
         @click="showPartInfo = !showPartInfo"
         @keydown="showPartInfo==showPartInfo"
@@ -38,7 +38,7 @@ function getNextValidIndex(index, length) {
 }
 
 export default {
-  inject: ['userName'],
+  inject: ['user'],
   props: {
     parts: {
       type: Array, required: true,
