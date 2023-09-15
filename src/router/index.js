@@ -1,6 +1,7 @@
 import { createRouter, createWebHashHistory } from 'vue-router';
 import HomePage from '../home/HomePage.vue';
 import RobotBuilder from '../build/RobotBuilder.vue';
+import PartInfo from '../parts/PartInfo.vue';
 
 export default createRouter({
   history: createWebHashHistory(), // 해시태그 라우팅 또는 HTML5 라우팅 사용 여부에 영향을 준다.
@@ -12,6 +13,10 @@ export default createRouter({
     path: '/build', // 해당 경로로 가서 component 표시
     name: 'Build', // route에 부여하는 이름. 코드의 다양한 위치에서 사용 가능
     component: RobotBuilder,
+  }, {
+    path: '/parts',
+    name: 'Parts',
+    component: PartInfo,
   }],
 });
 // 이 파일에서 새 라우터를 내보낼거다
