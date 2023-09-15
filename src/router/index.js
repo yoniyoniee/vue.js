@@ -17,6 +17,7 @@ export default createRouter({
     path: '/parts/:partType/:id',
     name: 'Parts',
     component: PartInfo,
+    props: true,
   }],
 });
 // 이 파일에서 새 라우터를 내보낼거다
