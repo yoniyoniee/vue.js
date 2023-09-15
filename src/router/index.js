@@ -14,7 +14,7 @@ export default createRouter({
     name: 'Build', // route에 부여하는 이름. 코드의 다양한 위치에서 사용 가능
     component: RobotBuilder,
   }, {
-    path: '/parts',
+    path: '/parts/:partType/:id',
     name: 'Parts',
     component: PartInfo,
   }],
