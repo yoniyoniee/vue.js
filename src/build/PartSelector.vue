@@ -1,6 +1,5 @@
 <template>
     <div class="part" :class="position">
-        <div>User: {{user.userName}}</div>
       <router-link :to="{
         name: 'Parts',
         params: {
@@ -34,7 +33,6 @@ function getNextValidIndex(index, length) {
 }
 
 export default {
-  inject: ['user'],
   props: {
     parts: {
       type: Array, required: true,

@@ -1,4 +1,13 @@
 <template>
+  <div>
+    Root Foo: {{rootFoo}}<br/>
+    Robots Foo: {{robotsFoo}} <br/>
+    Users Foo: {{usersFoo}} <br/>
+    <br/>
+    Root Getters Foo: {{rootGettersFoo}}<br/>
+    Robots Getters Foo: {{robotsGettersFoo}} <br/>
+    Users Getters Foo: {{usersGettersFoo}} <br/>
+  </div>
   <header>
     <nav>
       <ul>
@@ -34,21 +43,29 @@
 export default {
   name: 'app',
   computed: {
+    rootFoo() {
+      return this.$store.state.foo;
+    },
+    robotsFoo() {
+      return this.$store.state.robots.foo;
+    },
+    usersFoo() {
+      return this.$store.state.users.foo;
+    },
+    // 모듈 자체가 namespace 지정되어있지 않더라도 항상 모듈에서 네임스페이스로 지정된다.
+    // 루트 state에 상속되지 않는다.
+    rootGettersFoo() {
+      return this.$store.getters.foo;
+    },
+    robotsGettersFoo() {
+      return this.$store.getters['robots/foo'];
+    },
+    usersGettersFoo() {
+      return this.$store.getters['users/foo'];
+    },
+    // 사용자 모듈과 루트 모듈의 저장소가 동일한 네임스페이스를 공유한다.
     cart() {
       return this.$store.state.robots.cart;
-    },
-  },
-  data() {
-    return {
-      user: { userName: 'Jim' },
-    };
-  },
-  provide() {
-    return { user: this.user };
-  },
-  methods: {
-    changeUserName() {
-      this.user.userName = 'Fred';
     },
   },
 };
