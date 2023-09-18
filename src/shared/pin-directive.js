@@ -5,8 +5,9 @@ export default {
       element.style[position] = binding.value[position];
     });
     // eslint-disable-next-line no-param-reassign
-    element.style.positon = 'relative';
+    element.style.positon = 'absolute';
   },
+
 };
 
 // beforeMount Hook
