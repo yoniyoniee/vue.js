@@ -13,6 +13,14 @@
             Build
           </router-link>
         </li>
+        <li class="nav-item cart">
+          <router-link class="nav-link" to="/cart" exact>
+            Cart
+          </router-link>
+          <div class="cart-items">
+            {{cart.length}}
+          </div>
+        </li>
       </ul>
     </nav>
   </header>
@@ -25,6 +33,11 @@
 
 export default {
   name: 'app',
+  computed: {
+    cart() {
+      return this.$store.state.cart;
+    },
+  },
   data() {
     return {
       user: { userName: 'Jim' },
@@ -74,6 +87,11 @@ ul {
   font-size: 22px;
   border-right: 1px solid #bbb;
 }
+.nav-item.cart {
+  position: relative;
+  margin-left: auto;
+  border-right: none;
+}
 .logo {
   vertical-align: middle;
   height: 30px;
@@ -85,4 +103,15 @@ ul {
 .router-link-active {
   color: white;
 } /* 내장되어 있는 라우터 링크 활성 클래스: 활성화 되어있는 링크만 흰색으로 변경 */
+.cart-items {
+  position: absolute;
+  top: -5px;
+  right: -9px;
+  font-size: 18px;
+  width: 20px;
+  text-align: center;
+  display: inline-block;
+  border-radius: 100px;
+  background-color: mediumseagreen;
+}
 </style>

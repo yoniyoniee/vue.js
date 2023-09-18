@@ -7,6 +7,7 @@ import RobotHeads from '../parts/RobotHeads.vue';
 import RobotArmss from '../parts/RobotArms.vue';
 import RobotTorsos from '../parts/RobotTorsos.vue';
 import RobotBases from '../parts/RobotBases.vue';
+import ShoppingCart from '../cart/ShoppingCart.vue';
 
 export default createRouter({
   history: createWebHashHistory(), // 해시태그 라우팅 또는 HTML5 라우팅 사용 여부에 영향을 준다.
@@ -49,6 +50,10 @@ export default createRouter({
     name: 'Parts',
     component: PartInfo,
     props: true,
+  }, {
+    path: '/cart',
+    name: 'CartIn',
+    component: ShoppingCart,
   }],
 });
 // 이 파일에서 새 라우터를 내보낼거다
