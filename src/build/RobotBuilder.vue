@@ -60,7 +60,7 @@ import CollapsibleSection from '../shared/CollapsibleSection.vue';
 export default {
   name: 'RobotBuilder',
   created() {
-    this.$store.dispatch('getParts');
+    this.$store.dispatch('robots/getParts');
   },
   components: { PartSelector, CollapsibleSection },
   /* 부모 컴포넌트에서 자식 컴포넌트를 참조할 때 부모 컴포넌트 구성 요소 배열에도 나열해야한다. */
@@ -100,7 +100,7 @@ export default {
       robot.torso.cost +
       robot.right.cost +
       robot.base.cost;
-      this.$store.dispatch('addRobotToCart', { ...robot, cost })
+      this.$store.dispatch('robots/addRobotToCart', { ...robot, cost })
         .then(() => this.$router.push('/cart'));
       this.cart.push({ ...robot, cost });
     },
