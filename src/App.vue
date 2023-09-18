@@ -1,13 +1,4 @@
 <template>
-  <div>
-    Root Foo: {{rootFoo}}<br/>
-    Robots Foo: {{robotsFoo}} <br/>
-    Users Foo: {{usersFoo}} <br/>
-    <br/>
-    Root Getters Foo: {{rootGettersFoo}}<br/>
-    Robots Getters Foo: {{robotsGettersFoo}} <br/>
-    Users Getters Foo: {{usersGettersFoo}} <br/>
-  </div>
   <header>
     <nav>
       <ul>
