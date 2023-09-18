@@ -53,7 +53,7 @@
     </div>
 </template>
 <script>
-import { mapActions } from 'vuex';
+import { mapActions, mapMutations } from 'vuex';
 
 import createdHookMixin from './created-hook-mixin';
 import PartSelector from './PartSelector.vue';
@@ -96,6 +96,7 @@ export default {
   },
   methods: {
     ...mapActions('robots', ['getParts', 'addRobotToCart']),
+    ...mapMutations('robots', ['someMutations']), // 이런식으로 모듈이름과 매핑할 mutation이름을 적으면 된다.
     addToCart() {
       const robot = this.selectedRobot;
       const cost = robot.head.cost +
