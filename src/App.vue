@@ -40,18 +40,13 @@
 
 <script>
 
+import { mapState } from 'vuex';
+
 export default {
   name: 'app',
   computed: {
-    rootFoo() {
-      return this.$store.state.foo;
-    },
-    robotsFoo() {
-      return this.$store.state.robots.foo;
-    },
-    usersFoo() {
-      return this.$store.state.users.foo;
-    },
+    ...mapState({ usersFoo: 'foo', rootFoo: (state) => state.users.foo }),
+    ...mapState('robots', { robotsFoo: 'foo' }), // namepsace 모듈에서만 사용할 수 있는 방법이다.
     // 모듈 자체가 namespace 지정되어있지 않더라도 항상 모듈에서 네임스페이스로 지정된다.
     // 루트 state에 상속되지 않는다.
     rootGettersFoo() {
