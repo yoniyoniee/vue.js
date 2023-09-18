@@ -40,25 +40,16 @@
 
 <script>
 
-import { mapState } from 'vuex';
+import { mapState, mapGetters } from 'vuex';
 
 export default {
   name: 'app',
   computed: {
     ...mapState({ usersFoo: 'foo', rootFoo: (state) => state.users.foo }),
     ...mapState('robots', { robotsFoo: 'foo' }), // namepsace 모듈에서만 사용할 수 있는 방법이다.
-    // 모듈 자체가 namespace 지정되어있지 않더라도 항상 모듈에서 네임스페이스로 지정된다.
-    // 루트 state에 상속되지 않는다.
-    rootGettersFoo() {
-      return this.$store.getters.foo;
-    },
-    robotsGettersFoo() {
-      return this.$store.getters['robots/foo'];
-    },
-    usersGettersFoo() {
-      return this.$store.getters['users/foo'];
-    },
-    // 사용자 모듈과 루트 모듈의 저장소가 동일한 네임스페이스를 공유한다.
+    ...mapGetters({ rootGettersFoo: 'foo' }),
+    ...mapGetters('robots', { robotsGettersFoo: 'foo' }),
+    ...mapGetters({ usersGettersFoo: 'foo' }),
     cart() {
       return this.$store.state.robots.cart;
     },
