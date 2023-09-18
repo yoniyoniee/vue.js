@@ -1,11 +1,11 @@
 export default {
-  beforeMount(element) {
+  beforeMount(element, binding) {
+    Object.keys(binding.value).forEach((position) => {
+      // eslint-disable-next-line no-param-reassign
+      element.style[position] = binding.value[position];
+    });
     // eslint-disable-next-line no-param-reassign
     element.style.positon = 'relative';
-    // eslint-disable-next-line no-param-reassign
-    element.style.bottom = '5px';
-    // eslint-disable-next-line no-param-reassign
-    element.style.top = '5px';
   },
 };
 
